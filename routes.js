@@ -16,7 +16,7 @@ app.get('/hello', (req, res)=>{
 });
 
 app.get('/year', (req, res)=>{
-    const age= req.query.age;
+    let age= req.query.age;
     const currentYear = 2020;
 
     res.send(`You were born ${currentYear - age}`);
