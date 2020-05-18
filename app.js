@@ -3,24 +3,7 @@ const data = require('./data');
 const app = express();
 const port = 8000;
 
-app.get('/home', (req, res) => {
-    res.send(`<!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>HomePage</title>
-    </head>
-    <body>
-    <h1>HomePage</h1>
-    <ul>
-    <li><a href='/legal'>Legal</a></li>
-    <li><a href='/contact'>Contact</a></li>
-    <li><a href='/about'>About</a></li>
-        </ul>
-    </body>
-    </html>`)
-});
+app.use(express.static('public'));
 
 app.get('/legal/', (req, res) => res.send(`These are the legal terms of this site...<br><a href = '/contact'>Go to Contacts</a><br><a href = '/'>Go to Homepage</a>`));
 app.get('/legal/:page', (req, res) => res.json(req.params.page));
